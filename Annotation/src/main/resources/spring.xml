@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+  http://www.springframework.org/schema/context
+  http://www.springframework.org/schema/context/spring-context-3.0.xsd 
+  http://www.springframework.org/schema/tx 
+  http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:annotation-config />
+
+	<bean id="example" class="bean.Example">
+		<property name="id" value="2"></property>
+	</bean>
+	
+
+	
+	<bean id="injected" class="bean.Injected">
+		<qualifier value="example2" />
+		<property name="id" value="1"></property>
+	</bean>
+	
+		<bean id="injected2" class="bean.Injected">
+		<property name="id" value="2"></property>
+		<qualifier value="example" />
+	</bean>
+</beans>
